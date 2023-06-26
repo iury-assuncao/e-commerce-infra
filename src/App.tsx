@@ -1,9 +1,14 @@
+import { BrowserRouter } from 'react-router-dom';
+import { ToastContainer } from 'react-toastify';
+import AppRoutes from './routes';
+
 function App() {
   return (
     <>
-      <h1 className="flex justify-center items-center bg-slate-500">
-        Olá mundo
-      </h1>
+      <BrowserRouter>
+        <ToastContainer className="toast" autoClose={3500} />
+        <AppRoutes />
+      </BrowserRouter>
     </>
   );
 }
