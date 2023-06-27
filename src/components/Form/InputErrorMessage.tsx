@@ -15,7 +15,7 @@ export function InputErrorMessage({ name, errors }: Props) {
   return (
     <>
       {errorMessage && (
-        <span className="mb-4 text-sm font-semibold text-red-600">
+        <span className=" text-sm font-normal text-red-600">
           {errorMessage}
         </span>
       )}

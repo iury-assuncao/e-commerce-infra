@@ -70,11 +70,15 @@ function LoginPage() {
               )}
             />
 
-            <span
-              className=" text-xs font-medium text-gray-800 hover:cursor-pointer"
-              onClick={() => navigate('/register')}
-            >
-              Não possui conta? Cadastre-se
+            <span className=" text-xs font-normal text-gray-800 ">
+              Ainda não possui uma conta?
+              <span
+                className="  text-blue-800 hover:cursor-pointer"
+                onClick={() => navigate('/register')}
+              >
+                {' '}
+                Cadastre-se
+              </span>
             </span>
 
             <Button type="submit">Entrar</Button>
