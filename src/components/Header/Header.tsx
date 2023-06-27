@@ -2,7 +2,7 @@ import Logo from '../../assets/logo.png';
 
 export function Header() {
   return (
-    <header className="flex h-[12vh] w-[100%] items-center justify-between p-4 text-base shadow-lg">
+    <header className="flex h-[12vh] w-[100%] items-center justify-between px-10 py-4 text-base shadow-lg">
       <img src={Logo} alt="Logo da loja" className="h-[100%]" />
       <div></div>
       <div>

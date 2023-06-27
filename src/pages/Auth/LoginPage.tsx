@@ -21,11 +21,14 @@ function LoginPage() {
   return (
     <div>
       <Header />
-      <section className="flex h-[88vh] min-w-full items-center justify-between">
-        <div className="min-h-full w-1/2">
-          <img src={imageLogin} alt="Imagem da tela de login" />
-        </div>
-        <div className="min-h-full w-1/2">
+      <section className="flex h-[88vh] min-w-full items-center justify-evenly px-10 py-4">
+        <img
+          src={imageLogin}
+          alt="Imagem da tela de login"
+          className="max-lg:hidden"
+        />
+
+        <div className="w-[60vh] ">
           <div className="flex items-center gap-2">
             <h1 className="text-3xl font-bold text-gray-700 max-sm:text-3xl">
               Login
@@ -68,7 +71,7 @@ function LoginPage() {
             />
 
             <span
-              className="mt-2 text-xs font-medium text-gray-800 hover:cursor-pointer"
+              className=" text-xs font-medium text-gray-800 hover:cursor-pointer"
               onClick={() => navigate('/register')}
             >
               Não possui conta? Cadastre-se
