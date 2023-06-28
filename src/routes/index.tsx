@@ -4,6 +4,7 @@ import { Loading } from '../components/Loading';
 
 const LoginPage = lazy(() => import('../pages/Auth/LoginPage'));
 const RegisterPage = lazy(() => import('../pages/Auth/RegisterPage'));
+const Products = lazy(() => import('../pages/Products/Products'));
 
 function AppRoutes() {
   return (
@@ -17,10 +18,26 @@ function AppRoutes() {
         }
       ></Route>
       <Route
-        path="/register"
+        path="/cadastro-usuario"
         element={
           <Suspense fallback={<Loading />}>
             <RegisterPage />
+          </Suspense>
+        }
+      ></Route>
+      <Route
+        path="/"
+        element={
+          <Suspense fallback={<Loading />}>
+            <Products />
+          </Suspense>
+        }
+      ></Route>
+      <Route
+        path="/produto:id"
+        element={
+          <Suspense fallback={<Loading />}>
+            <Products />
           </Suspense>
         }
       ></Route>

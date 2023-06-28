@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import Logo from '../../assets/logo.png';
 
 export function Header() {
@@ -7,9 +8,15 @@ export function Header() {
       <div></div>
       <div>
         <ul className="flex gap-8">
-          <li>Produtos</li>
-          <li>Login</li>
-          <li>Cadastrar-se</li>
+          <li>
+            <Link to="/produtos">Produtos</Link>
+          </li>
+          <li>
+            <Link to="/login">Login</Link>
+          </li>
+          <li>
+            <Link to="/cadastro-usuario">Registre-se</Link>
+          </li>
         </ul>
       </div>
     </header>
