@@ -1,11 +1,11 @@
 import { INewUser, IProduct } from '../interfaces';
 import { Api } from '../providers/Api';
 
-export async function Login(email: string, password: string) {
+export async function login(email: string, password: string) {
   return Api.post<INewUser>(`/auth/login`, { email, password });
 }
 
-export async function Register(email: string, password: string) {
+export async function register(email: string, password: string) {
   return Api.post<INewUser>(`/auth/login`, { email, password });
 }
 

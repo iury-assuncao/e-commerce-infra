@@ -1,5 +1,5 @@
 import { Header } from '../../components/Header';
-import imageResgister from '../../assets/image-register.svg';
+import imageResgister from '../../assets/login.jpg';
 import { Controller, useForm } from 'react-hook-form';
 import { Input, InputPassword } from '../../components/Form';
 import { useNavigate } from 'react-router-dom';
@@ -25,19 +25,19 @@ function RegisterPage() {
   } = useForm<IRegisterForm>({ resolver: RegisterResolver });
 
   async function onSubmit() {
-    // try {
-    //   setLoading(true);
-    //   const { data } = await AuthService.register(email, password);
-    //   if (data.token) {
-    //     const { firstAccess, resetHash } = JSON.parse(
-    //       atob(data.token.split('.')[1])
-    //     );
-    //   }
-    // } catch (error: any) {
-    //   toast.error(error.response.data.message);
-    // } finally {
-    //   setLoading(false);
-    // }
+    try {
+      // setLoading(true);
+      // const { data } = await AuthService.register(email, password);
+      // if (data.token) {
+      //   const { firstAccess, resetHash } = JSON.parse(
+      //     atob(data.token.split('.')[1])
+      //   );
+      // }
+    } catch (error: any) {
+      toast.error(error.response.data.message);
+    } finally {
+      setLoading(false);
+    }
   }
   return (
     <>
@@ -120,7 +120,7 @@ function RegisterPage() {
             <img
               src={imageResgister}
               alt="Imagem da tela de login"
-              className="max-lg:hidden"
+              className="h-[60vh] max-lg:hidden"
             />
           </section>
         </div>

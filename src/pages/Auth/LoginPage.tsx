@@ -1,10 +1,12 @@
 import { Header } from '../../components/Header';
-import imageLogin from '../../assets/image-login.svg';
+import imageLogin from '../../assets/register.jpg';
 import { Controller, useForm } from 'react-hook-form';
 import { Input, InputPassword } from '../../components/Form';
 import { useNavigate } from 'react-router-dom';
 import { Button } from '../../components/Button';
 import { LoginResolver } from '../../Validations';
+import { toast } from 'react-toastify';
+import { useState } from 'react';
 
 type ILoginForm = {
   email: string;
@@ -12,6 +14,24 @@ type ILoginForm = {
 };
 
 function LoginPage() {
+  const [loading, setLoading] = useState(false);
+
+  async function onSubmit() {
+    try {
+      setLoading(true);
+      //const { data } = await login();
+      // if (data.token) {
+      //   const { firstAccess, resetHash } = JSON.parse(
+      //     atob(data.token.split('.')[1])
+      //   );
+      // }
+    } catch (error: any) {
+      toast.error(error);
+    } finally {
+      setLoading(false);
+    }
+  }
+
   const navigate = useNavigate();
   const {
     control,
@@ -25,7 +45,7 @@ function LoginPage() {
         <img
           src={imageLogin}
           alt="Imagem da tela de login"
-          className="max-lg:hidden"
+          className="h-[78vh] max-lg:hidden"
         />
 
         <div className="w-[60vh] ">
@@ -40,7 +60,7 @@ function LoginPage() {
 
           <form
             className="flex w-full flex-col items-end"
-            //onSubmit={handleSubmit(onSubmit)}
+            onSubmit={handleSubmit(onSubmit)}
           >
             <Controller
               name="email"

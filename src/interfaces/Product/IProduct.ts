@@ -4,4 +4,9 @@ export interface IProduct {
   descricao: string;
   quantidade: number;
   preco: number;
+  imagens?: url[];
+}
+
+interface url {
+  url: string;
 }

@@ -8,6 +8,7 @@ import { Stars } from '../../components/Star/Stars';
 import { Footer } from '../../components/Footer';
 import { Loading } from '../../components/Loading';
 import { formatCurrency } from '../../helpers/money';
+import { Button } from '../../components/Button';
 
 function ProductDetails() {
   const { id } = useParams();
@@ -37,15 +38,36 @@ function ProductDetails() {
       ) : (
         <div>
           <Header />
-          <section className=" h-auto min-w-full ">
-            <div className="mt-5 flex items-center justify-between px-10">
-              <h2 className="mb-3 text-xl font-semibold text-orange-500">
-                Lista de produtos
+          <section className=" flex h-auto min-w-full justify-center gap-10 p-10">
+            <div className="flex flex-col justify-between">
+              <h2 className="text-xl font-semibold text-orange-500">
+                {product?.nome}
               </h2>
+              <div>
+                <span>Avaliação:</span>
+                <Stars />
+              </div>
+
+              <span className="c text-lg font-medium text-orange-700 ">
+                {product && formatCurrency(product?.preco)}
+              </span>
+              <h3 className="text-lg">Descrição do produto</h3>
+              <p className="w-[60vh] text-justify text-sm">
+                {product?.descricao}
+              </p>
+
               <span className="text-xs text-gray-600"></span>
+              <div className="w-[15vw]">
+                <Button>+ Adicionar ao carrinho</Button>
+              </div>
             </div>
 
-            <div className="px-10"></div>
+            <div>
+              <img
+                src={product?.imagens && product?.imagens[0]?.url}
+                className="w-[40vw] rounded-md"
+              />
+            </div>
           </section>
           <Footer />
         </div>
