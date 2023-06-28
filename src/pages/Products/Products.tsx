@@ -1,6 +1,6 @@
 import { Header } from '../../components/Header';
 import imageBanner from '../../assets/Banner Loja Virtual Festival de Ofertas Colorido Rosa Azul.png';
-import imageNotFound from '../../assets/image-notfound.jpg';
+import imageProducts from '../../assets/iPhone-14.png';
 import { Link, useNavigate } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import { IProduct } from '../../interfaces';
@@ -22,7 +22,6 @@ function Products() {
       setLoading(false);
     }
   }
-  const navigate = useNavigate();
 
   useEffect(() => {
     fetchData();
@@ -43,7 +42,9 @@ function Products() {
         "
             />
             <div className="mt-5 flex items-center justify-between px-10">
-              <h2 className="">Lista de produtos</h2>
+              <h2 className="mb-3 text-xl font-semibold text-orange-500">
+                Lista de produtos
+              </h2>
               <span className="text-xs text-gray-600">
                 {products?.length} produtos encontrados
               </span>
@@ -56,9 +57,9 @@ function Products() {
                     key={product.id}
                     className="flex w-60 items-center  rounded-md border border-orange-400 p-4 shadow-xl hover:scale-105 hover:transition-all"
                   >
-                    <Link to={`/produtos/${product.id}`} className="">
-                      <div className="w-28">
-                        <img src={imageNotFound} alt="Imagem do produto" />
+                    <Link to={`/produto/${product.id}`} className="">
+                      <div className="w-44">
+                        <img src={imageProducts} alt="Imagem do produto" />
                       </div>
                       <span className="block">{product.nome}</span>
                       <Stars />

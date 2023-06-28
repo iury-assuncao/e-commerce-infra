@@ -9,7 +9,7 @@ export function Header() {
       <div>
         <ul className="flex gap-8">
           <li>
-            <Link to="/produtos">Produtos</Link>
+            <Link to="/">Produtos</Link>
           </li>
           <li>
             <Link to="/login">Login</Link>

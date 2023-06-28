@@ -1,6 +1,7 @@
 import { Suspense, lazy } from 'react';
 import { Route, Routes } from 'react-router-dom';
 import { Loading } from '../components/Loading';
+import ProductDetails from '../pages/Products/ProductDetails';
 
 const LoginPage = lazy(() => import('../pages/Auth/LoginPage'));
 const RegisterPage = lazy(() => import('../pages/Auth/RegisterPage'));
@@ -34,10 +35,10 @@ function AppRoutes() {
         }
       ></Route>
       <Route
-        path="/produto:id"
+        path="/produto/:id"
         element={
           <Suspense fallback={<Loading />}>
-            <Products />
+            <ProductDetails />
           </Suspense>
         }
       ></Route>

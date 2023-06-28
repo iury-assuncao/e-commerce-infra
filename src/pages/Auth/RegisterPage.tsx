@@ -106,7 +106,7 @@ function RegisterPage() {
                 <span className=" text-xs font-normal text-gray-800 ">
                   Já possui conta?
                   <span
-                    className="  text-blue-800 hover:cursor-pointer"
+                    className="  text-orange-500 hover:cursor-pointer"
                     onClick={() => navigate('/login')}
                   >
                     {' '}

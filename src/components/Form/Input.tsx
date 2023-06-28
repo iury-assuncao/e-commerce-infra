@@ -16,7 +16,7 @@ export const Input = React.forwardRef<HTMLInputElement, Props>(
         <input
           {...props}
           ref={ref}
-          className="w-full rounded-md border border-gray-300 px-4 py-3 outline-none transition-all focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
+          className="w-full rounded-md border border-gray-300 px-4 py-3 outline-none transition-all focus:border-orange-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
         />
         <InputErrorMessage name={name} errors={errors} />
       </div>

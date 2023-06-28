@@ -19,7 +19,7 @@ export const InputPassword = React.forwardRef<HTMLInputElement, Props>(
         {label && (
           <label className="mt-5 text-sm font-semibold">{label}:</label>
         )}
-        <div className="flex w-full justify-between rounded-md border border-gray-300 px-4 py-3 outline-none transition-all  focus-within:border-indigo-300 focus-within:ring focus-within:ring-indigo-200 focus-within:ring-opacity-50">
+        <div className="flex w-full justify-between rounded-md border border-gray-300 px-4 py-3 outline-none transition-all  focus-within:border-orange-300 focus-within:ring focus-within:ring-indigo-200 focus-within:ring-opacity-50">
           <input
             {...props}
             ref={ref}
