@@ -6,6 +6,7 @@ import ProductDetails from '../pages/Products/ProductDetails';
 const LoginPage = lazy(() => import('../pages/Auth/LoginPage'));
 const RegisterPage = lazy(() => import('../pages/Auth/RegisterPage'));
 const Products = lazy(() => import('../pages/Products/Products'));
+const Cart = lazy(() => import('../pages/Products/Cart'));
 
 function AppRoutes() {
   return (
@@ -39,6 +40,14 @@ function AppRoutes() {
         element={
           <Suspense fallback={<Loading />}>
             <ProductDetails />
+          </Suspense>
+        }
+      ></Route>
+      <Route
+        path="/carrinho"
+        element={
+          <Suspense fallback={<Loading />}>
+            <Cart />
           </Suspense>
         }
       ></Route>

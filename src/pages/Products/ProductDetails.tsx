@@ -46,7 +46,10 @@ function ProductDetails() {
                 <span>Avaliação:</span>
                 <Stars />
               </div>
-
+              <span className="font-light text-gray-400">
+                {' '}
+                Quantidade disponível: {product?.quantidade}
+              </span>
               <span className="c text-lg font-medium text-orange-700 ">
                 {product && formatCurrency(product?.preco)}
               </span>

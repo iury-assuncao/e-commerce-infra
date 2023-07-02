@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom';
+import { IoIosCart } from 'react-icons/io';
 import Logo from '../../assets/logo.png';
 
 export function Header() {
@@ -7,7 +8,7 @@ export function Header() {
       <img src={Logo} alt="Logo da loja" className="h-[100%] max-sm:h-[90%]" />
       <div></div>
       <div>
-        <ul className="flex gap-8 max-sm:flex-col max-sm:gap-1">
+        <ul className="flex items-center gap-8 max-sm:flex-col max-sm:gap-1">
           <li>
             <Link to="/">Produtos</Link>
           </li>
@@ -16,6 +17,11 @@ export function Header() {
           </li>
           <li>
             <Link to="/cadastro-usuario">Registre-se</Link>
+          </li>
+          <li>
+            <Link to="/carrinho">
+              <IoIosCart size={34} />
+            </Link>
           </li>
         </ul>
       </div>
