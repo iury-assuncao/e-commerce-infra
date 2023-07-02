@@ -38,8 +38,8 @@ function ProductDetails() {
       ) : (
         <div>
           <Header />
-          <section className=" flex h-auto min-w-full justify-center gap-10 p-10">
-            <div className="flex flex-col justify-between">
+          <section className=" flex h-auto min-w-full justify-center gap-10 p-10 max-lg:flex-col-reverse">
+            <div className="flex flex-col justify-between max-lg:items-center max-lg:justify-center">
               <h2 className="text-xl font-semibold text-orange-500">
                 {product?.nome}
               </h2>
@@ -52,12 +52,12 @@ function ProductDetails() {
                 {product && formatCurrency(product?.preco)}
               </span>
               <h3 className="text-lg">Descrição do produto</h3>
-              <p className="w-[60vh] text-justify text-sm">
+              <p className="w-[60vh] text-justify text-sm max-lg:w-[90%]">
                 {product?.descricao}
               </p>
 
               <span className="text-xs text-gray-600"></span>
-              <div className="w-[15vw]">
+              <div className="w-[15vw] max-lg:w-[94%]">
                 <Button>+ Adicionar ao carrinho</Button>
               </div>
             </div>
@@ -65,7 +65,7 @@ function ProductDetails() {
             <div>
               <img
                 src={product?.imagens && product?.imagens[0]?.url}
-                className="w-[40vw] rounded-md"
+                className="m-auto w-[40vw] rounded-md max-lg:w-[94%]"
               />
             </div>
           </section>

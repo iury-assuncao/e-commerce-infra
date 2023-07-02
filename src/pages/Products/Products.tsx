@@ -41,17 +41,17 @@ function Products() {
               className="w-auto
         "
             />
-            <div className="mt-5 flex items-center justify-between px-10">
+            <div className="mt-5 flex items-center justify-between px-10 max-sm:flex-col max-sm:justify-center max-sm:px-1">
               <h2 className="mb-3 text-xl font-semibold text-orange-500">
                 Lista de produtos
               </h2>
-              <span className="text-xs text-gray-600">
+              <span className="text-xs text-gray-600 max-sm:mb-3">
                 {products?.length} produtos encontrados
               </span>
             </div>
 
             <div className="px-10">
-              <ul className="flex flex-wrap justify-between gap-6">
+              <ul className=" flex flex-wrap items-center justify-between  gap-6 max-sm:items-center max-sm:justify-center">
                 {products?.map((product) => (
                   <li
                     key={product.id}

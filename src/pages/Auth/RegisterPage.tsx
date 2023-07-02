@@ -8,11 +8,12 @@ import { RegisterResolver } from '../../Validations';
 import { Loading } from '../../components/Loading';
 import { useState } from 'react';
 import { toast } from 'react-toastify';
+import { registerUser } from '../../services/Services';
 
 type IRegisterForm = {
-  name: string;
+  nome: string;
   email: string;
-  password: string;
+  senha: string;
 };
 
 function RegisterPage() {
@@ -24,17 +25,19 @@ function RegisterPage() {
     formState: { errors },
   } = useForm<IRegisterForm>({ resolver: RegisterResolver });
 
-  async function onSubmit() {
+  async function onSubmit(values: IRegisterForm) {
     try {
-      // setLoading(true);
-      // const { data } = await AuthService.register(email, password);
-      // if (data.token) {
-      //   const { firstAccess, resetHash } = JSON.parse(
-      //     atob(data.token.split('.')[1])
-      //   );
-      // }
+      setLoading(true);
+      const { data, status } = await registerUser(
+        values.nome,
+        values.email,
+        values.senha
+      );
+      if (status === 201) {
+        toast.success('Usuário cadastrado com sucesso');
+      }
     } catch (error: any) {
-      toast.error(error.response.data.message);
+      //toast.error('Erro');
     } finally {
       setLoading(false);
     }
@@ -62,7 +65,7 @@ function RegisterPage() {
                 onSubmit={handleSubmit(onSubmit)}
               >
                 <Controller
-                  name="name"
+                  name="nome"
                   control={control}
                   render={({ field }) => (
                     <Input
@@ -90,7 +93,7 @@ function RegisterPage() {
                   )}
                 />
                 <Controller
-                  name="password"
+                  name="senha"
                   control={control}
                   render={({ field }) => (
                     <InputPassword

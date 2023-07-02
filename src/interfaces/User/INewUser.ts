@@ -1,5 +1,5 @@
 export interface INewUser {
-  name: string;
+  nome: string;
   email: string;
-  password: string;
+  senha: string;
 }
