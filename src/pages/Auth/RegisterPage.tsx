@@ -35,9 +35,10 @@ function RegisterPage() {
       );
       if (status === 201) {
         toast.success('Usuário cadastrado com sucesso');
+        navigate('/login');
       }
     } catch (error: any) {
-      //toast.error('Erro');
+      toast.error(error.response.data.message);
     } finally {
       setLoading(false);
     }

@@ -1,12 +1,11 @@
-import { INewUser, IProduct } from '../interfaces';
+import { ILoginUser, INewUser, IProduct } from '../interfaces';
 import { Api } from '../providers/Api';
 
-export async function login(email: string, password: string) {
-  return Api.post<INewUser>(`/auth/login`, { email, password });
+export async function login(email: string, senha: string) {
+  return Api.post<ILoginUser>(`/auth/login`, { email, senha });
 }
 
 export async function registerUser(nome: string, email: string, senha: string) {
-  console.log(name);
   return Api.post<INewUser>(`/usuarios`, { nome, email, senha });
 }
 

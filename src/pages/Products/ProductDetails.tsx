@@ -12,7 +12,6 @@ import { Button } from '../../components/Button';
 
 function ProductDetails() {
   const { id } = useParams();
-  console.log(id);
   const [product, setProduct] = useState<IProduct>();
   const [loading, setLoading] = useState(false);
 
@@ -65,7 +64,7 @@ function ProductDetails() {
             <div>
               <img
                 src={product?.imagens && product?.imagens[0]?.url}
-                className="m-auto w-[40vw] rounded-md max-lg:w-[94%]"
+                className="m-auto h-[60vh] rounded-md max-lg:w-[94%]"
               />
             </div>
           </section>

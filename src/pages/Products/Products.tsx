@@ -55,11 +55,18 @@ function Products() {
                 {products?.map((product) => (
                   <li
                     key={product.id}
-                    className="flex w-60 items-center  rounded-md border border-orange-400 p-4 shadow-xl hover:scale-105 hover:transition-all"
+                    className="flex h-80 w-60 items-center justify-center rounded-md border border-orange-400 shadow-xl hover:scale-105 hover:transition-all"
                   >
-                    <Link to={`/produto/${product.id}`} className="">
-                      <div className="w-44">
-                        <img src={imageProducts} alt="Imagem do produto" />
+                    <Link
+                      to={`/produto/${product.id}`}
+                      className="flex w-[86%] flex-col items-center justify-center text-center"
+                    >
+                      <div className="w-auto">
+                        <img
+                          src={product.imagens && product.imagens[0]?.url}
+                          alt="Imagem do produto"
+                          className="h-36"
+                        />
                       </div>
                       <span className="block">{product.nome}</span>
                       <Stars />

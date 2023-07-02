@@ -7,6 +7,8 @@ import { Button } from '../../components/Button';
 import { LoginResolver } from '../../Validations';
 import { toast } from 'react-toastify';
 import { useState } from 'react';
+import { login } from '../../services/Services';
+import { Loading } from '../../components/Loading';
 
 type ILoginForm = {
   email: string;
@@ -16,17 +18,15 @@ type ILoginForm = {
 function LoginPage() {
   const [loading, setLoading] = useState(false);
 
-  async function onSubmit() {
+  async function onSubmit(values: ILoginForm) {
     try {
       setLoading(true);
-      //const { data } = await login();
-      // if (data.token) {
-      //   const { firstAccess, resetHash } = JSON.parse(
-      //     atob(data.token.split('.')[1])
-      //   );
-      // }
+      const { data, status } = await login(values.email, values.password);
+      console.log(data);
+      toast.success('Login realizado com sucesso');
+      navigate('/');
     } catch (error: any) {
-      toast.error(error);
+      toast.error('Usuário e/ou senha não encontrado');
     } finally {
       setLoading(false);
     }
@@ -40,71 +40,77 @@ function LoginPage() {
   } = useForm<ILoginForm>({ resolver: LoginResolver });
   return (
     <div>
-      <Header />
-      <section className="flex h-[88vh] min-w-full items-center justify-evenly px-10 py-4">
-        <img
-          src={imageLogin}
-          alt="Imagem da tela de login"
-          className="h-[78vh] max-lg:hidden"
-        />
-
-        <div className="w-[60vh] ">
-          <div className="flex items-center gap-2">
-            <h1 className="text-3xl font-bold text-gray-700 max-sm:text-3xl">
-              Login
-            </h1>
-          </div>
-          <p className=" mt-2 text-sm text-gray-600 max-sm:text-center">
-            Bem-vindo! Faça login na sua conta
-          </p>
-
-          <form
-            className="flex w-full flex-col items-end"
-            onSubmit={handleSubmit(onSubmit)}
-          >
-            <Controller
-              name="email"
-              control={control}
-              render={({ field }) => (
-                <Input
-                  {...field}
-                  errors={errors}
-                  className="w-full"
-                  type="email"
-                  label="E-mail"
-                  placeholder="you@exemple.com"
-                />
-              )}
-            />
-            <Controller
-              name="password"
-              control={control}
-              render={({ field }) => (
-                <InputPassword
-                  {...field}
-                  errors={errors}
-                  className="w-full"
-                  label="Senha"
-                  placeholder="••••••••"
-                />
-              )}
+      {loading ? (
+        <Loading />
+      ) : (
+        <div>
+          <Header />
+          <section className="flex h-[88vh] min-w-full items-center justify-evenly px-10 py-4">
+            <img
+              src={imageLogin}
+              alt="Imagem da tela de login"
+              className="h-[78vh] max-lg:hidden"
             />
 
-            <span className=" text-xs font-normal text-gray-800 ">
-              Ainda não possui uma conta?
-              <span
-                className="  text-orange-500 hover:cursor-pointer"
-                onClick={() => navigate('/cadastro-usuario')}
+            <div className="w-[60vh] ">
+              <div className="flex items-center gap-2">
+                <h1 className="text-3xl font-bold text-gray-700 max-sm:text-3xl">
+                  Login
+                </h1>
+              </div>
+              <p className=" mt-2 text-sm text-gray-600 max-sm:text-center">
+                Bem-vindo! Faça login na sua conta
+              </p>
+
+              <form
+                className="flex w-full flex-col items-end"
+                onSubmit={handleSubmit(onSubmit)}
               >
-                {' '}
-                Cadastre-se
-              </span>
-            </span>
+                <Controller
+                  name="email"
+                  control={control}
+                  render={({ field }) => (
+                    <Input
+                      {...field}
+                      errors={errors}
+                      className="w-full"
+                      type="email"
+                      label="E-mail"
+                      placeholder="you@exemple.com"
+                    />
+                  )}
+                />
+                <Controller
+                  name="password"
+                  control={control}
+                  render={({ field }) => (
+                    <InputPassword
+                      {...field}
+                      errors={errors}
+                      className="w-full"
+                      label="Senha"
+                      placeholder="••••••••"
+                    />
+                  )}
+                />
 
-            <Button type="submit">Entrar</Button>
-          </form>
+                <span className=" text-xs font-normal text-gray-800 ">
+                  Ainda não possui uma conta?
+                  <span
+                    className="  text-orange-500 hover:cursor-pointer"
+                    onClick={() => navigate('/cadastro-usuario')}
+                  >
+                    {' '}
+                    Cadastre-se
+                  </span>
+                </span>
+
+                <Button type="submit">Entrar</Button>
+              </form>
+            </div>
+          </section>
         </div>
-      </section>
+      )}
     </div>
   );
 }
