@@ -40,6 +40,7 @@ function Cart() {
                   img={item?.imagens && item.imagens[0].url}
                   product={item?.nome}
                   value={item?.preco}
+                  id={item.id}
                 />
               );
             })}
