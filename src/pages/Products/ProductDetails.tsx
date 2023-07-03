@@ -8,11 +8,13 @@ import { Footer } from '../../components/Footer';
 import { Loading } from '../../components/Loading';
 import { formatCurrency } from '../../helpers/money';
 import { Button } from '../../components/Button';
+import { useCartContext } from '../../contexts/Appcontext';
 
 function ProductDetails() {
   const { id } = useParams();
   const [product, setProduct] = useState<IProduct>();
   const [loading, setLoading] = useState(false);
+  const { cartItems, setCartItems } = useCartContext();
 
   async function fetchData() {
     if (id) {
@@ -28,7 +30,8 @@ function ProductDetails() {
   useEffect(() => {
     fetchData();
   }, []);
-
+  const handleAddCart = () => setCartItems([...cartItems, product]);
+  console.log(cartItems);
   return (
     <div>
       {loading ? (
@@ -59,7 +62,7 @@ function ProductDetails() {
 
               <span className="text-xs text-gray-600"></span>
               <div className="w-[15vw] max-lg:w-[94%]">
-                <Button>+ Adicionar ao carrinho</Button>
+                <Button onClick={handleAddCart}>+ Adicionar ao carrinho</Button>
               </div>
             </div>
 
