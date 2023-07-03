@@ -51,12 +51,11 @@ function RegisterPage() {
         <div>
           <Header />
           <section className="flex h-[88vh] min-w-full items-center justify-evenly px-10 py-4">
-            <div className="w-[60vh] ">
-              <div className="flex items-center gap-2">
-                <h1 className="text-3xl font-bold text-gray-700 max-sm:text-3xl">
-                  Cadastre-se
-                </h1>
-              </div>
+            <div className="w-[60vh] max-lg:text-center">
+              <h1 className="text-3xl font-bold text-gray-700 max-sm:text-2xl">
+                Cadastre-se
+              </h1>
+
               <p className=" mt-2 text-sm text-gray-600 max-sm:text-center">
                 Crie sua conta! É rápido e fácil
               </p>

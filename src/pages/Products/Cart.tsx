@@ -1,7 +1,6 @@
 import { Header } from '../../components/Header';
 
 import { IProduct } from '../../interfaces';
-
 import { Footer } from '../../components/Footer';
 import { ItemCart } from '../../components/Cart';
 import { useCartContext } from '../../contexts/Appcontext';
@@ -27,7 +26,7 @@ function Cart() {
             </Link>
           </div>
         ) : (
-          <section className="flex h-auto min-w-full flex-col items-end justify-center gap-10 p-10">
+          <section className="flex h-auto min-w-full flex-col items-end justify-center gap-10 p-10 max-lg:items-center max-lg:p-4">
             <h2 className="text-2xl text-orange-500">Carrinho</h2>
             <div className="h-1 w-full bg-orange-700"></div>
             <div className=" flex h-auto w-full items-center justify-between bg-gray-200 p-6">
@@ -45,12 +44,9 @@ function Cart() {
               );
             })}
 
-            {cartItems.map((item: IProduct) => {
-              console.log(item);
-            })}
-            <div className="bg-gray-200 p-4">
+            <div className="bg-gray-200 p-4 max-lg:text-center">
               <h6 className="font-semibold">Total do pedido</h6>
-              <span className="font-normal text-green-800">
+              <span className="font-normal text-green-800 ">
                 {formatCurrency(totalPreco)}
               </span>
             </div>
