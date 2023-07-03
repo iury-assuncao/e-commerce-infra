@@ -1,9 +1,8 @@
 import { Header } from '../../components/Header';
-import imageProducts from '../../assets/iPhone-14.png';
-import { Link, useNavigate, useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import { IProduct } from '../../interfaces';
-import { getProductById, getProducts } from '../../services/Services';
+import { getProductById } from '../../services/Services';
 import { Stars } from '../../components/Star/Stars';
 import { Footer } from '../../components/Footer';
 import { Loading } from '../../components/Loading';

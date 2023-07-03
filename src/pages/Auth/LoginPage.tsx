@@ -21,7 +21,7 @@ function LoginPage() {
   async function onSubmit(values: ILoginForm) {
     try {
       setLoading(true);
-      const { data, status } = await login(values.email, values.password);
+      const { data } = await login(values.email, values.password);
       console.log(data);
       toast.success('Login realizado com sucesso');
       navigate('/');

@@ -2,17 +2,17 @@ import { Header } from '../../components/Header';
 
 import { useEffect, useState } from 'react';
 import { IProduct } from '../../interfaces';
-import { getProductById, getProducts } from '../../services/Services';
+import { getProductById } from '../../services/Services';
 
 import { Footer } from '../../components/Footer';
 import { Loading } from '../../components/Loading';
-import { useParams } from 'react-router-dom';
 import { ItemCart } from '../../components/Cart';
+import { useCartContext } from '../../contexts/Appcontext';
 
 function Cart() {
-  const { id } = useParams();
   const [product, setProduct] = useState<IProduct>();
   const [loading, setLoading] = useState(false);
+  const { cartItems } = useCartContext();
 
   async function fetchData() {
     setLoading(true);
@@ -22,7 +22,7 @@ function Cart() {
       setLoading(false);
     }
   }
-
+  console.log(product);
   useEffect(() => {
     fetchData();
   }, []);
@@ -43,11 +43,14 @@ function Cart() {
               <h5 className="absolute right-8 font-semibold">Valor</h5>
             </div>
 
-            <ItemCart
-              img={product?.imagens && product.imagens[0].url}
-              value={product?.preco}
-              product={product?.nome}
-            />
+            {cartItems.map((item: IProduct) => {
+              <ItemCart
+                key={item.id}
+                img={item?.imagens && item.imagens[0].url}
+                value={item?.preco}
+                product={item?.nome}
+              />;
+            })}
 
             <div className="bg-gray-200 p-4">
               <h6 className="font-semibold">Total do pedido</h6>
