@@ -1,5 +1,5 @@
 import { Header } from '../../components/Header';
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import { IProduct } from '../../interfaces';
 import { getProductById } from '../../services/Services';
@@ -15,6 +15,7 @@ function ProductDetails() {
   const [product, setProduct] = useState<IProduct>();
   const [loading, setLoading] = useState(false);
   const { cartItems, setCartItems } = useCartContext();
+  const navigate = useNavigate();
 
   async function fetchData() {
     if (id) {
@@ -62,7 +63,13 @@ function ProductDetails() {
 
               <span className="text-xs text-gray-600"></span>
               <div className="w-[15vw] max-lg:w-[94%]">
-                <Button onClick={handleAddCart}>+ Adicionar ao carrinho</Button>
+                <Button
+                  onClick={() => {
+                    handleAddCart(), navigate('/carrinho');
+                  }}
+                >
+                  + Adicionar ao carrinho
+                </Button>
               </div>
             </div>
 
