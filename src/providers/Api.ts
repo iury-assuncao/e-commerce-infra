@@ -1,9 +1,6 @@
 import axios from 'axios';
 
-const baseURL =
-  import.meta.env.VITE_API_BASE_URL || 'http://localhost:3001/api';
+const baseURL = 'https://infracode-api.onrender.com';
 export const Api = axios.create({ baseURL });
 
-export function setBearerToken(bearerToken: string) {
-  Api.defaults.headers.common['Authorization'] = `Bearer ${bearerToken}`;
-}
+//http://localhost:3000
