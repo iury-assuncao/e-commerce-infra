@@ -28,7 +28,7 @@ function RegisterPage() {
   async function onSubmit(values: IRegisterForm) {
     try {
       setLoading(true);
-      const { data, status } = await registerUser(
+      const { status } = await registerUser(
         values.nome,
         values.email,
         values.senha

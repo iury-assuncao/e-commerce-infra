@@ -1,7 +1,6 @@
 import { Header } from '../../components/Header';
 import imageBanner from '../../assets/Banner Loja Virtual Festival de Ofertas Colorido Rosa Azul.png';
-import imageProducts from '../../assets/iPhone-14.png';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import { IProduct } from '../../interfaces';
 import { getProducts } from '../../services/Services';
