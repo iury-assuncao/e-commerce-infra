@@ -7,7 +7,6 @@ import { ItemCart } from '../../components/Cart';
 import { useCartContext } from '../../contexts/Appcontext';
 import { formatCurrency } from '../../helpers/money';
 import { Link } from 'react-router-dom';
-import { Button } from '../../components/Button';
 
 function Cart() {
   const { cartItems } = useCartContext();
