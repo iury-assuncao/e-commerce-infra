@@ -5,7 +5,9 @@ import Logo from '../../assets/logo.png';
 export function Header() {
   return (
     <header className="flex h-[12vh] w-[100%] items-center justify-between px-10 py-4 text-base shadow-lg">
-      <img src={Logo} alt="Logo da loja" className="h-[100%] max-sm:h-[90%]" />
+      <Link to="/" className="h-[94%] max-sm:h-[84%]">
+        <img className="h-[100%] " src={Logo} alt="Logo da loja" />
+      </Link>
       <div></div>
       <div>
         <ul className="flex items-center gap-8 max-sm:flex-col max-sm:gap-1">

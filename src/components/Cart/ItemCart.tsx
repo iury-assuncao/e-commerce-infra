@@ -4,17 +4,15 @@ type Props = {
   img?: string;
   product?: string;
   value?: number;
-  quantidade?: number;
 };
 
-export function ItemCart({ img, product, value, quantidade }: Props) {
+export function ItemCart({ img, product, value }: Props) {
   return (
-    <div className="relative flex h-auto w-full items-center p-6">
-      <div className=" absolute left-8 flex items-center gap-4">
-        <img src={img} className="h-20" alt="Imagem do produto" />
+    <div className="shadow-x  relative flex h-auto w-full items-center border border-orange-400 p-10">
+      <div className=" absolute left-8 flex h-32 items-center gap-4">
+        <img src={img} className="h-20 p-4" alt="Imagem do produto" />
         <span>{product}</span>
       </div>
-      <span className="absolute right-48">{quantidade}</span>
       <span className="absolute right-8">{value && formatCurrency(value)}</span>
     </div>
   );
